@@ -28,6 +28,7 @@ bacula-dir:
     DB_HOST: bacula-db
     DB_USER: postgres
     DB_PASSWORD: U8azIbKXY9QD
+    FD_PASSWORD: Uu7ooy5Aequiev9caexe2IengaiTh0Ieiegh7Theweqr
 
 bacula-sd:
   image: romracer/bacula-opensource-sd:7.4.3
