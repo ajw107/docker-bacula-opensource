@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a working technology preview of running Bacula (Open Source) 7.4.1 in
+This is a working technology preview of running Bacula (Open Source) 7.4.3 in
 multiple [Docker](https://www.docker.com/) containers.
 
 To make it easier to get started a `docker-compose.yml` is provided and it's
@@ -13,18 +13,18 @@ the containers as a service).
 ## Images
 
 The images are available on the [Docker Hub](https://hub.docker.com/) as:
-- [redcoolbeans/bacula-opensource-db-data](https://hub.docker.com/r/redcoolbeans/bacula-opensource-db-data/)
-- [redcoolbeans/bacula-opensource-db](https://hub.docker.com/r/redcoolbeans/bacula-opensource-db/)
-- [redcoolbeans/bacula-opensource-dir](https://hub.docker.com/r/redcoolbeans/bacula-opensource-dir/)
-- [redcoolbeans/bacula-opensource-sd](https://hub.docker.com/r/redcoolbeans/bacula-opensource-sd/)
-- [redcoolbeans/bacula-opensource-fd](https://hub.docker.com/r/redcoolbeans/bacula-opensource-fd/)
+- [romracer/bacula-opensource-db-data](https://hub.docker.com/r/romracer/bacula-opensource-db-data/)
+- [romracer/bacula-opensource-db](https://hub.docker.com/r/romracer/bacula-opensource-db/)
+- [romracer/bacula-opensource-dir](https://hub.docker.com/r/romracer/bacula-opensource-dir/)
+- [romracer/bacula-opensource-sd](https://hub.docker.com/r/romracer/bacula-opensource-sd/)
+- [romracer/bacula-opensource-fd](https://hub.docker.com/r/romracer/bacula-opensource-fd/)
 
 ## Requirements
 
 The following components are required for this setup:
 
 - Docker >= 1.9.0
-- Docker Compose >= 1.5.0
+- Docker Compose = 1.5.x (with newer does not work networking between bacula-dir and bacula-db)
 
 Instructions on how to install these on for example CentOS, can be found
 [here](http://docs.docker.com/engine/installation/centos/) and [here](https://docs.docker.com/compose/install/).
@@ -37,6 +37,8 @@ needs to be invoked with the `--x-networking` flag. The remainder of this docume
 assumes that a shell alias has been setup to shrink repeated shell commands:
 
     alias docker-compose='docker-compose --x-networking'
+
+> This option '--x-networking' has been removed from version 1.6 (see https://github.com/docker/compose/releases/tag/1.6.0-rc1)
 
 The local network that will be created is named after the directory the `docker-compose.yml`
 file is located in. E.g. if the full path is `/home/bat/docker/bacula` then the network will
