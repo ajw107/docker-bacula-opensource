@@ -3,5 +3,5 @@
 *.orig
 backups
 *.repo
-configs
+#configs
 !bacula-fd/configs/
